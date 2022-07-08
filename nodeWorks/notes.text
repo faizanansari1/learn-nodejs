@@ -1,0 +1,16 @@
+How Node js Works
+
+1: Call Stack
+2: Node Api
+3: CallBack Queue
+4: Example
+5: Interview Question
+
+3 main parts Artitecture
+1: call stack
+2: node Apis
+3: event loop (CallBack Queue)
+
+ye zaruri nh hai node or call back stack har bar km me aee but call stack har bar km me atta hai..
+
+callstack -> nodeapi -> callback Queue:  is purry process ko EventLoop khety hain
