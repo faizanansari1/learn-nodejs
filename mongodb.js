@@ -10,3 +10,5 @@ const dbConnect = async () => {
   return (collection = db.collection("products"));
 };
 module.exports = dbConnect;
+
+// ye DB connect ki file har data base ky liee alag sy banti hai koi c bhi language ho
