@@ -1,19 +1,34 @@
-// OS Oprating system
+// Event and EventEmitter
+// EventEmitter simply like a button but in node js has no create any button.
+// in node js you have to create himsilf event and also use in the API Like Blow in the cods
 
-const os = require("os");
+const express = require("express");
+const EventEmitter = require("events");
+const app = express();
 
-// system info
-// console.log("OS>", os.arch());
+let count = 0;
 
-// usage Momory
-// console.log("OS>", os.freemem() / (1024 * 1024 * 1024));
-// console.log("OS>", os.totalmem() / (1024 * 1024 * 1024));
+const event = new EventEmitter();
 
-// hoset Name
-// console.log(os.hostname());
+event.on("countApi", () => {
+  count++;
+  console.log("Event Called" + count);
+});
 
-//platform
-// console.log(os.platform());
+app.get("/", (req, resp) => {
+  resp.send("Api Called");
+  // create event for hit the api
+  event.emit("countApi");
+});
 
-// userInfo
-console.log(os.userInfo());
+app.get("/search", (req, resp) => {
+  resp.send("search Called");
+  event.emit("countApi");
+});
+
+app.get("/update", (req, resp) => {
+  resp.send("update Called");
+  event.emit("countApi");
+});
+
+app.listen(5000);
