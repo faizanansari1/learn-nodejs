@@ -1,24 +1,19 @@
-// file upload using api .. we need to install multer packege for uploading the file
-const express = require("express");
-const { now } = require("mongoose");
-const multer = require("multer");
-const app = express();
-app.use(express.json());
+// OS Oprating system
 
-const upload = multer({
-  storage: multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, "uploads");
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.fieldname + "-" + Date.now() + ".jpg");
-    },
-  }),
-}).single("user_file");
+const os = require("os");
 
-app.post("/upload", upload, (req, resp) => {
-  console.log("req>>", req.body);
-  resp.send("FILE Uploaded jkahds");
-});
+// system info
+// console.log("OS>", os.arch());
 
-app.listen(5000);
+// usage Momory
+// console.log("OS>", os.freemem() / (1024 * 1024 * 1024));
+// console.log("OS>", os.totalmem() / (1024 * 1024 * 1024));
+
+// hoset Name
+// console.log(os.hostname());
+
+//platform
+// console.log(os.platform());
+
+// userInfo
+console.log(os.userInfo());
